@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { FooterPage } from './views/Layout/Footer/footerPage'
+import HeaderPage from './views/Layout/Header/headerPage'
+import HomePage from './views/Home/homePage'
+import RecipePage from './views/Recipes/recipePage'
+import { styled } from 'styled-components'
 
-function App() {
+const App = () => {
+  const Content = styled.div`
+    padding-top: 60px; /* Adjust this value to match the height of your fixed header */
+  `
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <HeaderPage />
+      <Content>
+        <Routes>
+          <Route path="/" Component={HomePage} />
+          <Route path="recipes" Component={RecipePage} />
+        </Routes>
+      </Content>
+
+      <FooterPage />
+    </Router>
+  )
 }
 
-export default App;
+export default App
