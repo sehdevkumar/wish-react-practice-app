@@ -8,6 +8,10 @@ import { styled } from 'styled-components'
 const App = () => {
   const Content = styled.div`
     padding-top: 60px; /* Adjust this value to match the height of your fixed header */
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    display: grid;
   `
 
   return (
